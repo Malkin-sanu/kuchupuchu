@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta name="description" content="One Little Website, One Big Sorry 💌 — A heartfelt, interactive apology for my best friend.">
+  <meta name="theme-color" content="#FCE7F3">
+  <title>One Little Website, One Big Sorry 💌</title>
+
+  <!-- Google Fonts: Caveat for personal letter, Outfit for headings, Plus Jakarta Sans for body -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Ambient floating particles background -->
+  <canvas id="ambient-canvas" class="ambient-canvas" aria-hidden="true"></canvas>
+
+  <!-- Sound & Settings Control Bar -->
+  <header class="top-nav" role="banner">
+    <div class="brand-tag">
+      <span class="heart-pulse">💌</span> ONE LITTLE WEBSITE, ONE BIG SORRY
+    </div>
+    <div class="nav-controls">
+      <button id="music-btn" class="nav-btn" aria-label="Toggle background music" title="Toggle cute background music">
+        <span class="btn-icon">🎵</span>
+        <span class="btn-label">Music: <span id="music-status">OFF</span></span>
+      </button>
+      <button id="customize-btn" class="nav-btn" aria-label="Customize names" title="Customize for your friend">
+        <span class="btn-icon">✏️</span>
+        <span class="btn-label">Customize</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Experience Wrapper -->
+  <main id="main-content" class="content-wrapper">
+
+    <!-- ==========================================
+         SECTION 1: OPENING ENVELOPE SCREEN
+         ========================================== -->
+    <section id="opening-section" class="screen-section active" aria-label="Opening letter screen">
+      <div class="container center-container">
+        <div class="opening-card-wrap">
+          <div class="badge-pill">A Special Delivery Just For You 🌸</div>
+          <h1 class="main-heading">Psst… Oye, ek minute 🥺</h1>
+          <p class="subtitle">Tumhare liye kuch banaya hai. Please ek baar dekh lo? 💗</p>
+
+          <!-- Interactive 3D Envelope -->
+          <div class="envelope-scene" id="envelope-wrapper" role="button" tabindex="0" aria-label="Click to open your surprise envelope">
+            <div class="envelope" id="envelope">
+              <!-- Back wall of envelope pocket -->
+              <div class="envelope-back"></div>
+              
+              <!-- Letter paper that peeks out and slides up -->
+              <div class="envelope-letter" id="envelope-letter">
+                <div class="mini-letter-header">
+                  <span class="mini-stamp">🌸</span>
+                  <span class="mini-to">To: <strong class="display-friend-name">Meri Best Friend</strong></span>
+                </div>
+                <div class="mini-letter-lines">
+                  <div class="line"></div>
+                  <div class="line short"></div>
+                  <div class="line medium"></div>
+                </div>
+                <div class="mini-letter-heart">💌</div>
+              </div>
+
+              <!-- Top fold flap -->
+              <div class="envelope-flap" id="envelope-flap">
+                <div class="flap-triangle"></div>
+              </div>
+
+              <!-- Pocket front folds -->
+              <div class="envelope-pocket">
+                <div class="pocket-left"></div>
+                <div class="pocket-right"></div>
+                <div class="pocket-bottom"></div>
+              </div>
+
+              <!-- Wax Seal Button -->
+              <div class="wax-seal" id="wax-seal" title="Click to break seal">
+                <div class="seal-inner">
+                  <span class="seal-heart">💖</span>
+                </div>
+              </div>
+            </div>
+            <div class="envelope-shadow"></div>
+          </div>
+
+          <div class="action-btn-wrap">
+            <button id="open-envelope-btn" class="cta-primary-btn pulse-glow">
+              <span class="btn-sparkle">✨</span>
+              <span>Open Your Little Surprise 💌</span>
+              <span class="btn-sparkle">✨</span>
+            </button>
+            <p class="tiny-hint">Tap the envelope or button above to open</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ==========================================
+         SECTION 2: HEARTFELT APOLOGY LETTER
+         ========================================== -->
+    <section id="apology-section" class="screen-section" aria-label="Heartfelt apology section">
+      <div class="container">
+        <div class="section-badge">From My Heart To Yours 🕊️</div>
+        <h2 class="section-heading">Okay… ab meri baat suno ❤️</h2>
+        
+        <!-- Handmade Parchment Note -->
+        <div class="letter-card" id="letter-card">
+          <div class="washi-tape washi-top"></div>
+          <div class="letter-decor-stamp">💌</div>
+          
+          <div class="letter-inner">
+            <div class="letter-salutation">
+              Dear <span class="display-friend-name">Meri Dost</span>,
+            </div>
+
+            <div class="letter-body">
+              <p>
+                Pata hai, tum mujhse gussa ho… aur shayad tumhari jagah main hota toh main bhi upset hota.
+              </p>
+              
+              <p>
+                Main tumhari feelings ko ignore nahi karna chahta. Agar meri kisi baat ya harkat se tumhe bura laga, toh <span class="highlight highlight-pink"><span class="highlight-spark">✨</span> I'm genuinely sorry</span>.
+              </p>
+              
+              <p>
+                <span class="highlight highlight-lavender">Tum meri achhi dost ho</span>, aur main nahi chahta ki meri wajah se tumhara mood kharab rahe. Main ye website sirf tumhe manane ke liye nahi, balki ye batane ke liye bana raha hoon ki <span class="highlight highlight-gold">tumhari dosti mere liye matter karti hai</span>.
+              </p>
+              
+              <p>
+               Isi liye plz man jao na plzz cutie plz man jaao sanu 😭. ❤️
+              </p>
+            </div>
+
+            <div class="letter-sign-off">
+              <span class="sign-text">Always wishing for your smile,</span>
+              <span class="sign-author"><span class="display-your-name">Tumhara Dost</span> ✍️</span>
+            </div>
+          </div>
+
+          <!-- Cute handwritten sticky notes pinned to the side -->
+          <div class="sticky-tags" aria-label="Friendship reminders">
+            <div class="sticky-tag tag-pink">
+              <span>🌸</span> No ego, just friendship
+            </div>
+            <div class="sticky-tag tag-purple">
+              <span>🧁</span> Your feelings > my pride
+            </div>
+          </div>
+        </div>
+
+        <div class="scroll-down-indicator">
+          <span>Neeche dekho, ek sawal hai...</span>
+          <a href="#interactive-section" class="bounce-arrow" aria-label="Scroll to next question">↓</a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ==========================================
+         SECTION 3: CUTE INTERACTIVE SECTION
+         ========================================== -->
+    <section id="interactive-section" class="screen-section" aria-label="Interactive mood question section">
+      <div class="container center-container">
+        <div class="interactive-card">
+          <div class="section-badge">Dil Ki Baat 🥺</div>
+          <h2 class="section-heading">Ab batao, kitna gussa ho? 😭</h2>
+          <p class="section-desc">Sach sach batana, koi force nahi hai. Your feelings are 100% valid!</p>
+
+          <div class="choice-buttons-grid">
+            <button id="choice-forgive-btn" class="choice-btn choice-forgive" aria-pressed="false">
+              <span class="choice-emoji">❤️</span>
+              <span class="choice-title">Achha theek hai, maaf kiya ❤️</span>
+              <span class="choice-sub">Chalo dosti zindabaad!</span>
+            </button>
+
+            <button id="choice-upset-btn" class="choice-btn choice-upset" aria-pressed="false">
+              <span class="choice-emoji">😤</span>
+              <span class="choice-title">Nahi, abhi bhi gussa hoon 😤</span>
+              <span class="choice-sub">Aise asaani se nahi manungi/manunga!</span>
+            </button>
+          </div>
+
+          <!-- RESPONSE A: If forgiven -->
+          <div id="response-forgive" class="interactive-result hidden" aria-live="polite">
+            <div class="result-box box-success">
+              <div class="result-mascot">🎉🥳😭❤️</div>
+              <h3 class="result-heading">YAYYY 😭❤️ Ab meri dost wapas smile kar de bas!</h3>
+              <p class="result-text">
+                Sach bolun toh tumhari smile ke bina mera din hi nahi banta. Thank you for forgiving me! Promise aage se aur careful rahunga/rahungi. 
+              </p>
+              <div class="friendship-restored-badge">
+                <span class="star-icon">✨</span>
+                <span>Friendship Shield: 100% Restored</span>
+                <span class="star-icon">✨</span>
+              </div>
+              <a href="#appreciation-section" class="cute-pill-link">Ek sweet baat aur suno ➔</a>
+            </div>
+          </div>
+
+          <!-- RESPONSE B: If still upset -->
+          <div id="response-upset" class="interactive-result hidden" aria-live="polite">
+            <div class="result-box box-gentle">
+              <div class="result-mascot">🥺🫂☕</div>
+              <h3 class="result-heading">Achha baba 😭, time le lo… main yahin hoon jab tum baat karna chaho.</h3>
+              <p class="result-text">
+                Main bilkul samajh sakta hoon. Gussa hona tumhara poora haq hai aur main bilkul jaldi nahi karunga. Jab bhi tum ready feel karo, I'm just one message away.
+              </p>
+              
+              <div class="cute-extra-action">
+                <button id="reveal-sweet-note-btn" class="secondary-cute-btn">
+                  <span>Ek last cute message? 🥺</span>
+                </button>
+              </div>
+
+              <!-- Sweet note revealed on clicking -->
+              <div id="sweet-apology-note" class="sweet-note-drawer hidden">
+                <div class="note-paper">
+                  <div class="note-pin">📌</div>
+                  <p class="note-content">
+                    “Waise sach kahun toh bina tumse baat kiye din bohot soona aur ajeeb lagta hai. Tumhara gussa hona justified hai. Jab bhi mood theek ho, ek ping kar dena... chai, momos ya ice cream meri taraf se pakka! ☕🍦 Take all the time you need, okay? You're the best.”
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ==========================================
+         SECTION 4: FRIENDSHIP APPRECIATION SECTION
+         ========================================== -->
+    <section id="appreciation-section" class="screen-section" aria-label="Friendship appreciation section">
+      <div class="container">
+        <div class="section-badge">Forever & Always 💫</div>
+        <h2 class="section-heading">Ek baat yaad rakhna ✨</h2>
+        
+        <div class="appreciation-card">
+          <p class="appreciation-quote">
+            “Har friendship mein kabhi na kabhi misunderstandings ho jaati hain. Mere liye important ye hai ki hum ek doosre ki baat samajhne ki koshish karein. Tumhari smile achhi lagti hai, aur tumhari dosti bhi. okay? 💗”
+          </p>
+
+          <!-- Cute Animated SVG Illustration: Two Best Friends looking at stars -->
+          <div class="illustration-wrapper" aria-label="Illustration of two cute best friend characters under twinkling stars">
+            <svg class="friends-svg" viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="cloudGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stop-color="#ffffff"/>
+                  <stop offset="100%" stop-color="#F3E8FF"/>
+                </linearGradient>
+                <linearGradient id="heartGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#FF6584"/>
+                  <stop offset="100%" stop-color="#FF8DA1"/>
+                </linearGradient>
+                <filter id="glowFilter" x="-20%" y="-20%" width="140%" height="140%">
+                  <feGaussianBlur stdDeviation="4" result="blur"/>
+                  <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+                </filter>
+              </defs>
+
+              <!-- Dreamy cloud platform -->
+              <g class="cloud-platform">
+                <ellipse cx="200" cy="195" rx="160" ry="32" fill="url(#cloudGrad)" opacity="0.95"/>
+                <circle cx="100" cy="180" r="30" fill="#ffffff"/>
+                <circle cx="150" cy="170" r="38" fill="#ffffff"/>
+                <circle cx="210" cy="165" r="42" fill="#ffffff"/>
+                <circle cx="270" cy="170" r="36" fill="#ffffff"/>
+                <circle cx="310" cy="180" r="28" fill="#ffffff"/>
+              </g>
+
+              <!-- Twinkling stars in sky -->
+              <g class="sky-stars">
+                <path class="svg-star star-1" d="M80 60 L83 67 L90 70 L83 73 L80 80 L77 73 L70 70 L77 67 Z" fill="#FBBF24"/>
+                <path class="svg-star star-2" d="M320 50 L322 55 L328 57 L322 59 L320 65 L318 59 L312 57 L318 55 Z" fill="#F472B6"/>
+                <path class="svg-star star-3" d="M140 40 L141 44 L146 45 L141 47 L140 51 L138 47 L134 45 L138 44 Z" fill="#A78BFA"/>
+                <path class="svg-star star-4" d="M260 45 L262 49 L267 50 L262 52 L260 56 L258 52 L254 50 L258 49 Z" fill="#FBBF24"/>
+              </g>
+
+              <!-- Pulsing heart between them -->
+              <g class="floating-svg-heart" filter="url(#glowFilter)">
+                <path d="M200 88 C195 76, 178 76, 178 94 C178 112, 200 126, 200 126 C200 126, 222 112, 222 94 C222 76, 205 76, 200 88 Z" fill="url(#heartGrad)"/>
+              </g>
+
+              <!-- Friend 1: Cute Kitty/Bear Character (Left) -->
+              <g class="character char-left">
+                <!-- Body -->
+                <ellipse cx="145" cy="155" rx="32" ry="34" fill="#FFE5EC"/>
+                <!-- Ears -->
+                <path d="M125 125 Q120 100 135 112 Z" fill="#FFE5EC" stroke="#F472B6" stroke-width="2"/>
+                <path d="M127 122 Q124 107 133 115 Z" fill="#FFB7C5"/>
+                <path d="M165 125 Q170 100 155 112 Z" fill="#FFE5EC" stroke="#F472B6" stroke-width="2"/>
+                <path d="M163 122 Q166 107 157 115 Z" fill="#FFB7C5"/>
+                <!-- Eyes: Happy curve -->
+                <path d="M132 142 Q138 148 144 142" stroke="#4A3043" stroke-width="3" stroke-linecap="round" fill="none"/>
+                <path d="M152 142 Q158 148 164 142" stroke="#4A3043" stroke-width="3" stroke-linecap="round" fill="none"/>
+                <!-- Cheeks -->
+                <circle cx="128" cy="148" r="5" fill="#FF8DA1" opacity="0.6"/>
+                <circle cx="168" cy="148" r="5" fill="#FF8DA1" opacity="0.6"/>
+                <!-- Mouth -->
+                <path d="M144 149 Q148 153 152 149" stroke="#4A3043" stroke-width="2" stroke-linecap="round" fill="none"/>
+                <!-- Arm holding a pink tulip -->
+                <circle cx="172" cy="160" r="7" fill="#FFE5EC"/>
+                <path d="M172 160 Q180 155 185 145" stroke="#34D399" stroke-width="3" fill="none"/>
+                <path d="M185 145 C180 138 190 138 188 145 Z" fill="#F472B6"/>
+              </g>
+
+              <!-- Friend 2: Cute Bunny/Bear Character (Right) -->
+              <g class="character char-right">
+                <!-- Body -->
+                <ellipse cx="255" cy="155" rx="32" ry="34" fill="#EDE9FE"/>
+                <!-- Bunny Ears -->
+                <ellipse cx="242" cy="110" rx="7" ry="18" fill="#EDE9FE" stroke="#C084FC" stroke-width="2"/>
+                <ellipse cx="242" cy="110" rx="4" ry="13" fill="#DDD6FE"/>
+                <ellipse cx="268" cy="110" rx="7" ry="18" fill="#EDE9FE" stroke="#C084FC" stroke-width="2"/>
+                <ellipse cx="268" cy="110" rx="4" ry="13" fill="#DDD6FE"/>
+                <!-- Eyes: Big gentle blink -->
+                <circle cx="245" cy="142" r="3.5" fill="#4A3043"/>
+                <circle cx="265" cy="142" r="3.5" fill="#4A3043"/>
+                <circle cx="244" cy="140.5" r="1.2" fill="#ffffff"/>
+                <circle cx="264" cy="140.5" r="1.2" fill="#ffffff"/>
+                <!-- Cheeks -->
+                <circle cx="238" cy="148" r="5" fill="#C084FC" opacity="0.6"/>
+                <circle cx="272" cy="148" r="5" fill="#C084FC" opacity="0.6"/>
+                <!-- Soft Smile -->
+                <path d="M250 148 Q255 152 260 148" stroke="#4A3043" stroke-width="2" stroke-linecap="round" fill="none"/>
+                <!-- Arm holding a little star -->
+                <circle cx="228" cy="160" r="7" fill="#EDE9FE"/>
+                <path d="M226 150 L228 154 L232 155 L228 157 L226 161 L224 157 L220 155 L224 154 Z" fill="#FBBF24"/>
+              </g>
+            </svg>
+          </div>
+
+          <!-- Little Things We Love & Cherish -->
+          <div class="cherish-box">
+            <h4 class="cherish-title">3 Things That Won't Ever Change 🌻</h4>
+            <div class="cherish-pills">
+              <div class="cherish-item">
+                <span class="chip-icon">☕</span>
+                <span class="chip-text">Unfiltered rants & tea</span>
+              </div>
+              <div class="cherish-item">
+                <span class="chip-icon">😂</span>
+                <span class="chip-text">Stupid jokes only we get</span>
+              </div>
+              <div class="cherish-item">
+                <span class="chip-icon">🫂</span>
+                <span class="chip-text">Having your back forever</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="scroll-down-indicator">
+          <a href="#final-section" class="bounce-arrow" aria-label="Scroll to final message">↓</a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ==========================================
+         SECTION 5: FINAL NIGHT-SKY SCREEN
+         ========================================== -->
+    <section id="final-section" class="screen-section night-sky-section" aria-label="Final heartfelt apology and reply screen">
+      <div class="stars-layer" aria-hidden="true">
+        <div class="twinkle-star star-a"></div>
+        <div class="twinkle-star star-b"></div>
+        <div class="twinkle-star star-c"></div>
+        <div class="twinkle-star star-d"></div>
+        <div class="twinkle-star star-e"></div>
+        <div class="shooting-star"></div>
+      </div>
+
+      <div class="container center-container">
+        <div class="final-card">
+          <!-- Glowing Pulsing Heart -->
+          <div class="glowing-heart-wrap">
+            <div class="glowing-halo"></div>
+            <div class="glowing-heart" aria-hidden="true">💖</div>
+          </div>
+
+          <h2 class="final-main-text">
+            “sorry hai sanu lakin timi lai mero ksm reply deu anni pahila jastai ramrari kara gara na plzz 😭❤️ ❤️”
+          </h2>
+
+          <p class="final-sub-text">
+            “Made with a little guilt, lots of care, and too much coding 😭💗”
+
+            i love you so much bacchi ❤️ 😭
+          </p>
+
+          <div class="footer-credit">
+            <p>Designed with love for <strong class="display-friend-name">My Best Friend</strong> • Stay smiling always ✨</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================
+       MODAL: CUSTOMIZE NAMES
+       ========================================== -->
+  <dialog id="customize-dialog" class="customize-dialog" aria-labelledby="dialog-title">
+    <div class="dialog-content">
+      <div class="dialog-header">
+        <h3 id="dialog-title" class="dialog-title">✏️ Customize Your Apology Website</h3>
+        <button id="dialog-close-btn" class="dialog-close" aria-label="Close dialog">&times;</button>
+      </div>
+
+      <p class="dialog-desc">
+        Personalize the names. You can also generate a customized share link to send directly to your friend!
+      </p>
+
+      <form id="customize-form" method="dialog">
+        <div class="form-group">
+          <label for="input-friend-name">Friend's Name / Nickname:</label>
+          <input type="text" id="input-friend-name" placeholder="e.g. Simran, Bestie, Oye..." value="Meri Best Friend" maxlength="30" required>
+        </div>
+
+        <div class="form-group">
+          <label for="input-your-name">Your Name / Nickname:</label>
+          <input type="text" id="input-your-name" placeholder="e.g. Rahul, Tumhara Dost..." value="Tumhara Dost" maxlength="30" required>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" id="save-settings-btn" class="save-btn">Save Changes 💾</button>
+          <button type="button" id="copy-share-btn" class="share-btn">Copy Shareable Link 🔗</button>
+        </div>
+      </form>
+
+      <div id="copy-success-msg" class="copy-success hidden" role="status">
+        ✅ Link copied to clipboard! Share it with your friend!
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Interactive Heart Click Particle Container -->
+  <div id="click-particles-container" aria-hidden="true"></div>
+
+  <!-- Main JavaScript File -->
+  <script src="script.js"></script>
+</body>
+</html>
